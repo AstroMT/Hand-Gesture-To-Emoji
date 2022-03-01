@@ -1,7 +1,7 @@
  <html>
 
  <head>
-   <title>Emotion To Emoji</title>
+   <title>Hand Gesture To Emoji</title>
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -17,54 +17,58 @@
    <div class="container">
 
      <center>
-       <h3 class="btn btn-warning heading"> Emotion to Emoji Webapp
-         <br>
-         <span>&#128522;</span>
-         <span>&#128512;</span>
-         <span>&#128532;</span>
-         <span>&#128546;</span>
-         <span>&#128545;</span>
-         <span>&#128548;</span>
+       <div class="info">
+       <h3>Hand Gesture to Emoji Webapp
+         <br><br>
+         <span class="emojis">&#128077;</span> |
+         <span class="emojis">&#128076;</span> |
+         <span class="emojis">&#128078;</span> |
+         <span class="emojis">&#9994;</span> |
+         <span class="emojis">&#128400;</span> |
+         <span class="emojis">&#128070;</span> |
+         <span class="emojis">&#128071;</span> |
+         <span class="emojis">&#128072;</span> |
+         <span class="emojis">&#128073;</span>
        </h3>
+      </div>
        <br><br>
 
-       <p style="font-size: 22px;">Take your selfie to generate emoji
+       <p style="font-size: 22px;">Take a picture of a hand gesture to generate an emoji.
+         <br><br>
+         <b style="color: rgb(111, 0, 255)">Victory?</b>
          <br>
-         <b style="color: yellow">Are you Happy?</b>
+         <b style="color: rgb(255, 238, 0)">Thumbs-Up?</b>
          <br>
-         <b style="color: black">Are you Sad?</b>
-         <br>
-         <b style="color: red">Are you Angry?</b>
+         <b style="color: rgb(0, 255, 149)">Perfect?</b>
          <br>
        </p>
 
-       <div class="col-md-4 col-sm-12 col-xs-12">
-        <label>Webcam - </label>
-        <br><br>
-        <div id="camera"></div>
-        <br><br>
-        <button onclick="photo()">Take Photo</button>
-      </div>
-
-      <div class="col-md-4 col-sm-12 col-xs-12">
-        <label>Predictions - </label>
-        <p>First Prediction:</p>
-        <p class="emotion_name" id="result_emotion_name1"></p>
-        <p class="emoji" id="update_emoji1"></p>
-        <hr>
-        <p>Second Prediction:</p>
-        <p class="emotion_name" id="result_emotion_name2"></p>
-        <p class="emoji" id="update_emoji2"></p>
-      </div>
-       
-       <div class="col-md-4 col-sm-12 col-xs-12">
-         <label>Snapshot - </label>
+       <div class="col-md-4 col-sm-12 col-xs-12" style="padding-top: 15px;">
+         <label>Webcam - </label>
          <br><br>
-         <div id="snapshot"></div>
-         <br><br>
-         <button onclick="predict_emotion();">Predict Emotion</button>
+         <div id="camera"></div>
+         <button class="button take" onclick="photo()">Take Picture</button>
        </div>
 
+       <div class="col-md-4 col-sm-12 col-xs-12 guesses">
+         <label>Predictions - </label>
+         <br><br>
+         <p>First Prediction:</p>
+         <p class="emotion_name" id="result_emotion_name1"></p>
+         <p class="emoji" id="update_emoji1"></p>
+         <hr>
+         <p>Second Prediction:</p>
+         <p class="emotion_name" id="result_emotion_name2"></p>
+         <p class="emoji" id="update_emoji2"></p>
+       </div>
+
+       <div class="col-md-4 col-sm-12 col-xs-12 snapshot">
+         <label style="color: rgb(0, 179, 0)">Snapshot - </label>
+         <br><br>
+         <div id="snapshot"></div>
+         <button class="button predict" onclick="predict_gesture();">Predict Gesture</button>
+       </div>
+       <br><br><br>
      </center>
 
    </div>
