@@ -18,7 +18,7 @@ console.log("ml5 version: ", ml5.version);
 
 function predict_gesture() {}
 
-classifier = ml5.imageClassifier("teachablemachine.withgoogle.com/models/r8irsOja2/model.json", modelLoaded);
+classifier = ml5.imageClassifier("https://teachablemachine.withgoogle.com/models/r8irsOja2/model.json", modelLoaded);
 
 function modelLoaded() {
     console.log("Your ml5 model is loaded!")
@@ -33,4 +33,66 @@ function speak () {
     var speak_data2 = "The second prediction is " + prediction2;
     var UtterThis = new SpeechSynthesisUtterance(speak_data1 + speak_data2);
     synth.speak(UtterThis);
+}
+
+function check() {
+    taken_image = document.getElementById("img_snapshot");
+    classifier.classify(taken_image, gotResult);
+}
+
+
+function gotResult(error, results) {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log(results);
+        document.getElementById("result_emotion_name1").innerHTML = results[0].label;
+        document.getElementById("result_emotion_name2").innerHTML = results[1].label;
+        prediction1 = results[0].label;
+        prediction2 = results[1].label;
+        speak();
+        if (results[0].label == 'Thumbs-up') {
+            document.getElementById("update_emoji1").innerHTML = "&#128077";
+        }
+        if (results[0].label == 'Perfect') {
+            document.getElementById("update_emoji1").innerHTML = "&#128076";
+        }
+        if (results[0].label == 'Thumbs-down') {
+            document.getElementById("update_emoji1").innerHTML = "&#128078";
+        }
+        if (results[0].label == 'High-five') {
+            document.getElementById("update_emoji1").innerHTML = "&#128400";
+        }
+        if (results[0].label == 'Point up') {
+            document.getElementById("update_emoji1").innerHTML = "&#128070";
+        }
+        if (results[0].label == 'Point down') {
+            document.getElementById("update_emoji1").innerHTML = "&#128071";
+        }
+        if (results[0].label == 'Point sideways') {
+            document.getElementById("update_emoji1").innerHTML = "&#128072" + "&#128073";
+        }
+
+        if (results[1].label == 'Thumbs-up') {
+            document.getElementById("update_emoji2").innerHTML = "&#128077";
+        }
+        if (results[1].label == 'Perfect') {
+            document.getElementById("update_emoji2").innerHTML = "&#128076";
+        }
+        if (results[1].label == 'Thumbs-down') {
+            document.getElementById("update_emoji2").innerHTML = "&#128078";
+        }
+        if (results[1].label == 'High-five') {
+            document.getElementById("update_emoji2").innerHTML = "&#128400";
+        }
+        if (results[1].label == 'Point up') {
+            document.getElementById("update_emoji2").innerHTML = "&#128070";
+        }
+        if (results[1].label == 'Point down') {
+            document.getElementById("update_emoji2").innerHTML = "&#128071";
+        }
+        if (results[1].label == 'Point sideways') {
+            document.getElementById("update_emoji2").innerHTML = "&#128072" + "&#128073";
+        }
+    }
 }

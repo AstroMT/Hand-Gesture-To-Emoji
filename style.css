@@ -21,6 +21,7 @@ span {
 
 .emotion_name {
   font-size: 40px;
+  color: white;
 }
 
 .snapshot {
@@ -80,4 +81,8 @@ span {
 
 .emojis {
   font-size: 25px;
+}
+
+.emoji {
+  font-size: 50px;
 }
